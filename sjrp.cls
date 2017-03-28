@@ -1,11 +1,11 @@
 % The file sjrp.cls is mainly used for response.
 % Copyright (C) 2016-2017 by Jun Shang <shangjunthu@gmail.com>
 %% The latest version:
-%% https://github.com/ShangJunTHU/TEX
+%% https://github.com/ShangJunTHU/Responses
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sjrp}
-              [2017/03/37 v1.05 @Tsinghua University]
+              [2017/03/28 v1.06 @Tsinghua University]
 
 \LoadClass[11pt]{article}
 \RequirePackage{amsmath,amsfonts,amssymb,bm}
