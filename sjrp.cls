@@ -5,9 +5,17 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sjrp}
-              [2017/03/28 v1.06 @Tsinghua University]
+              [2017/04/07 v1.07 @Tsinghua University]
 
-\LoadClass[11pt]{article}
+\def\@sizeopt{11pt}
+\DeclareOption{9pt}{\def\@sizeopt{9pt}}
+\DeclareOption{10pt}{\def\@sizeopt{10pt}}
+\DeclareOption{12pt}{\def\@sizeopt{12pt}}
+\DeclareOption{13pt}{\def\@sizeopt{13pt}}
+\ProcessOptions
+
+\LoadClass[\@sizeopt]{article}
+
 \RequirePackage{amsmath,amsfonts,amssymb,bm}
 \RequirePackage{titlesec,textcomp,framed}
 \RequirePackage[framed,amsmath]{ntheorem}
