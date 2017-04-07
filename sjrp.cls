@@ -5,13 +5,22 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sjrp}
-              [2017/04/07 v1.07 @Tsinghua University]
+              [2017/04/07 v1.08 @Tsinghua University]
 
 \def\@sizeopt{11pt}
 \DeclareOption{9pt}{\def\@sizeopt{9pt}}
 \DeclareOption{10pt}{\def\@sizeopt{10pt}}
 \DeclareOption{12pt}{\def\@sizeopt{12pt}}
 \DeclareOption{13pt}{\def\@sizeopt{13pt}}
+
+\DeclareOption{naked}{
+\newcommand{\mynewtheorem}{\newtheorem}
+\def\@skipsizeopt{0pt}
+}
+
+\DeclareOption{framed}{\newcommand{\mynewtheorem}{\newframedtheorem}
+\def\@skipsizeopt{-1pt}
+}
 \ProcessOptions
 
 \LoadClass[\@sizeopt]{article}
@@ -40,9 +49,9 @@
 
 \newcounter{fin}
 \theoremstyle{break}
-\theorempostskipamount=-1pt
-\newframedtheorem{comment}[fin]{Comment}
 
+\mynewtheorem{comment}[fin]{Comment}
+\theorempostskipamount=\@skipsizeopt
 \newenvironment{response}{
 {\vskip 2pt \noindent \bf Response: \par}
 }
