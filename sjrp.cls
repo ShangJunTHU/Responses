@@ -5,7 +5,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sjrp}
-              [2017/04/07 v1.08 @Tsinghua University]
+              [2017/04/23 v1.09 @Tsinghua University]
 
 \def\@sizeopt{11pt}
 \DeclareOption{9pt}{\def\@sizeopt{9pt}}
@@ -21,6 +21,14 @@
 \DeclareOption{framed}{\newcommand{\mynewtheorem}{\newframedtheorem}
 \def\@skipsizeopt{-1pt}
 }
+
+\newcommand\placeauthor{
+{\bf Authors:}~\Monster@value@author \par
+\vskip 3pt
+}
+\DeclareOption{anonymous}{
+\renewcommand\placeauthor{\relax}
+}
 \ProcessOptions
 
 \LoadClass[\@sizeopt]{article}
@@ -30,17 +38,16 @@
 \RequirePackage[framed,amsmath]{ntheorem}
 \RequirePackage[margin=20mm]{geometry}
 
+\renewcommand\author[1]{\def\Monster@value@author{#1}}
 \newcommand\msID[1]{\def\Monster@value@msID{#1}}
 \renewcommand\title[1]{\def\Monster@value@title{#1}}
-\renewcommand\author[1]{\def\Monster@value@author{#1}}
 
 \newcommand\makelion{%
       {\bf Submission number:}~\Monster@value@msID \par
       \vskip 3pt
       {\bf Title:}~\Monster@value@title \par
       \vskip 3pt
-      {\bf Authors:}~\Monster@value@author \par
-      \vskip 3pt
+      \placeauthor
       \begin{center}%
       {\LARGE \bf Authors' responses \par}%
       \vskip 15pt
