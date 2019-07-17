@@ -5,7 +5,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{sjrp}
-              [2017/04/23 v1.09 @Tsinghua University]
+              [2019/07/16 v1.10 @ University of Alberta]
 
 \def\@sizeopt{10pt}
 \DeclareOption{8pt}{\def\@sizeopt{8pt}}
