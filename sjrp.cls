@@ -1,5 +1,5 @@
-% The file sjrp.cls is mainly used for response.
-% Copyright (C) 2016-2017 by Jun Shang <shangjunthu@gmail.com>
+% The file sjrp.cls is a LaTeX class for authors' response.
+% Copyright (C) 2016-2019 by Jun Shang <shangjunthu@gmail.com>
 %% The latest version:
 %% https://github.com/ShangJunTHU/Responses
 
@@ -7,9 +7,10 @@
 \ProvidesClass{sjrp}
               [2017/04/23 v1.09 @Tsinghua University]
 
-\def\@sizeopt{11pt}
+\def\@sizeopt{10pt}
+\DeclareOption{8pt}{\def\@sizeopt{8pt}}
 \DeclareOption{9pt}{\def\@sizeopt{9pt}}
-\DeclareOption{10pt}{\def\@sizeopt{10pt}}
+\DeclareOption{11pt}{\def\@sizeopt{11pt}}
 \DeclareOption{12pt}{\def\@sizeopt{12pt}}
 \DeclareOption{13pt}{\def\@sizeopt{13pt}}
 
@@ -18,7 +19,8 @@
 \def\@skipsizeopt{0pt}
 }
 
-\DeclareOption{framed}{\newcommand{\mynewtheorem}{\newframedtheorem}
+\DeclareOption{framed}{
+\newcommand{\mynewtheorem}{\newframedtheorem}
 \def\@skipsizeopt{-1pt}
 }
 
@@ -31,7 +33,7 @@
 }
 \ProcessOptions
 
-\LoadClass[\@sizeopt]{article}
+\LoadClass[\@sizeopt]{extarticle}
 
 \RequirePackage{amsmath,amsfonts,amssymb,bm}
 \RequirePackage{titlesec,textcomp,framed}
@@ -55,22 +57,24 @@
 }
 
 \newcounter{fin}
+\newcounter{naught}
 \theoremstyle{break}
 
-\mynewtheorem{comment}[fin]{Comment}
+\mynewtheorem{com}[fin]{Comment}
+\mynewtheorem{gcom}[naught]{Comment}
 \theorempostskipamount=\@skipsizeopt
 \newenvironment{response}{
-{\vskip 2pt \noindent \bf Response: \par}
+{\vskip -2pt \noindent \bf Response: \par \vskip -5pt}
 }
 
 \newcommand{\RAE}{\section*{\centering Responses to the Associate Editor}}
-\newcommand{\RR}[1]{\section*{\centering Responses to Reviewer No.#1} \setcounter{fin}{0} }
+\newcommand{\RE}{\section*{\centering Responses to the Editor}}
+\newcommand{\RR}[1]{\section*{\centering Responses to Reviewer No.#1} \setcounter{fin}{0} \setcounter{naught}{-1}  }
 
 \parindent=0pt
-\parskip=0.5\baselineskip plus 2pt
+\parskip=0.5\baselineskip plus 5pt
 
 \linespread{1.2}
 
 \endinput
-%%
 %% End of file `sjrp.cls'.
