@@ -1,2 +1,2 @@
 # Responses
-About responses to reviewer comments.
+About responses to reviewers' comments.
